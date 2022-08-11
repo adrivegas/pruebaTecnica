@@ -15,6 +15,13 @@
 
         <mat-nav-list>
 
+            <a routerLink="./listado"
+               mat-list-item
+               (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>label</mat-icon>
+                <span>Listado de Películas</span>
+            </a>
+
             <a routerLink="./buscar"
                mat-list-item
                (click)="sidenav.toggle()">

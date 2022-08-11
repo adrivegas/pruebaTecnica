@@ -6,6 +6,7 @@ import { BuscarComponent } from './pages/buscar/buscar.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MaterialModule } from '../material/material.module';
+import { ListadoComponent } from './pages/listado/listado.component';
 
 
 
@@ -13,7 +14,8 @@ import { MaterialModule } from '../material/material.module';
   declarations: [
     BuscarComponent,
     MovieComponent,
-    HomeComponent
+    HomeComponent,
+    ListadoComponent
   ],
   imports: [
     CommonModule,
