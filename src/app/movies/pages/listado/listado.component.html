@@ -1,1 +1,24 @@
-<p>listado works!</p>
+<h1>Listado de Películas</h1>
+<mat-divider></mat-divider>
+<br>
+<!-- <ul>
+    <li *ngFor="let movie of movies" >
+        {{movie.Title}}
+    </li>
+</ul> -->
+
+<mat-card *ngFor="let movie of movies">
+    <mat-card-header>
+        <mat-card-title> {{ movie.Title }} </mat-card-title>
+        <mat-card-subtitle> {{ movie.Year }} </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-actions>
+        <button mat-button 
+                color="warn"
+                [routerLink]="['/movies', movie.imdbID ]">
+            Leer más...
+        </button>
+    </mat-card-actions>
+
+</mat-card>

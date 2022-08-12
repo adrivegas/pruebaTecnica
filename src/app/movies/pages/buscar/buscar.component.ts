@@ -8,16 +8,23 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class BuscarComponent implements OnInit {
 
-  titulo: string = 'women';
+  titulo: string = '';
+  movies:any[] = [];
 
   constructor(private moviesService: MoviesService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
+    this.buscando(); 
+  }
+
+  buscando() {
+
     console.log(this.titulo);
     this.moviesService.searchMovie(this.titulo)
-      .subscribe( resp => {
-        console.log(resp);
-      });
+      .subscribe( movies => this.movies = movies.Search );
+
   }
+
+
 
 }

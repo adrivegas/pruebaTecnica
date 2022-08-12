@@ -7,15 +7,16 @@ import { MoviesService } from '../../services/movies.service';
   styleUrls: ['./listado.component.css']
 })
 export class ListadoComponent implements OnInit {
-
   
-
   constructor(private moviesService: MoviesService) { }
 
+  movies:any[] = [];
+  titulo: string = 'spider';
+
   ngOnInit(): void {
-    this.moviesService.getMovies().subscribe( movies => {
-          console.log(movies);
-    })
+    this.moviesService.getMovies(this.titulo, '2000')
+      .subscribe( movies => this.movies = movies.Search );
+      // .subscribe( resp => console.log(resp.Search));
   }
 
 }
