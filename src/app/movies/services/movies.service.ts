@@ -23,4 +23,10 @@ export class MoviesService {
     const movie = this.http.get(`${this.apiUrl}?apikey=${this.apikey}&s=${titulo}`);
     return movie;
   }
+
+  getMoviePorId(id:string):Observable<any>{
+    // const url = `${this.apiUrl}${titulo}&apikey=${this.apikey}`;
+    const movie = this.http.get(`${this.apiUrl}?apikey=${this.apikey}&i=${id}`);
+    return movie;
+  }
 }

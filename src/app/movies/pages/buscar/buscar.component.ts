@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MoviesService } from '../../services/movies.service';
 
 @Component({
@@ -10,6 +11,7 @@ export class BuscarComponent implements OnInit {
 
   titulo: string = '';
   movies:any[] = [];
+  movieSeleccionada!:any;
 
   constructor(private moviesService: MoviesService) { }
 
@@ -23,6 +25,22 @@ export class BuscarComponent implements OnInit {
     this.moviesService.searchMovie(this.titulo)
       .subscribe( movies => this.movies = movies.Search );
 
+  }
+
+  opcionSeleccionada( event: MatAutocompleteSelectedEvent ) {
+
+    // if(!event.option.value) {
+    //   this.movieSeleccionada = undefined;
+    //   return;
+    // }
+
+    const movie = event.option.value;
+    this.titulo = movie.Title;
+
+    console.log(movie.Title);
+
+    this.moviesService.getMoviePorId( movie.imdbID! )
+      .subscribe( movie => this.movieSeleccionada = movie );
   }
 
 
